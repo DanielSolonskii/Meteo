@@ -130,7 +130,7 @@ int calculateVal(int step, int val, int i) {
 void crossFade(int color[3], int temp) {
    float t = dht.readTemperature();
   // Convert to 0-255
-  Serial.println(t);
+  ppm =  analogRead(analogPin);
   int R = (color[0] * 255) / 100;
   int G = (color[1] * 255) / 100;
   int B = (color[2] * 255) / 100;
@@ -157,6 +157,7 @@ void crossFade(int color[3], int temp) {
         Serial.print(" | ");
         Serial.print(redVal);
         Serial.print(" / ");
+        ppm =  analogRead(analogPin);
         Serial.print(grnVal);
         Serial.print(" / ");  
         Serial.println(bluVal); 
@@ -167,6 +168,7 @@ void crossFade(int color[3], int temp) {
   }
   // Update current values for next loop
   prevR = redVal; 
+  ppm =  analogRead(analogPin);
   prevG = grnVal; 
   prevB = bluVal;
   delay(hold); // Pause for optional 'wait' milliseconds before resuming the loop
